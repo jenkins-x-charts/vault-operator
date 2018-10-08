@@ -1,9 +1,8 @@
-#CHART_REPO := http://jenkins-x-chartmuseum:8080
-CHART_REPO := https://chartmuseum.jx.cd.jenkins-x.io
+CHART_REPO := http://jenkins-x-chartmuseum:8080
 CURRENT=$(pwd)
 NAME := vault-operator
 OS := $(shell uname)
-VERSION := $(shell cat VERSION)
+VERSION := $(shell cat ./VERSION)
 
 init: 
 	helm init --client-only
