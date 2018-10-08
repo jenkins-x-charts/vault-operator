@@ -1,4 +1,5 @@
-CHART_REPO := http://jenkins-x-chartmuseum:8080
+#CHART_REPO := http://jenkins-x-chartmuseum:8080
+CHART_REPO := https://chartmuseum.jx.cd.jenkins-x.io
 CURRENT=$(pwd)
 NAME := vault-operator
 OS := $(shell uname)
