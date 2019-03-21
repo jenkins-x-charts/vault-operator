@@ -29,8 +29,14 @@ spec:
           command:
             - vault-operator
           env:
-            - name: OPERATOR_NAMESAPCE
-              value: {{ .Values.watchNamespace }}
+            - name: WATCH_NAMESAPCE
+              value: {{ default "" .Values.watchNamespace }}
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: OPERATOR_NAME
+              value: "vault-operator"
           ports:
           - containerPort: {{ .Values.service.internalPort }}
           livenessProbe:
