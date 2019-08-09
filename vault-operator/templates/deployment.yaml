@@ -29,7 +29,7 @@ spec:
           command:
             - vault-operator
           env:
-            - name: WATCH_NAMESPACE
+            - name: OPERATOR_NAMESPACE
               value: {{ default "" .Values.watchNamespace }}
             - name: POD_NAME
               valueFrom:
