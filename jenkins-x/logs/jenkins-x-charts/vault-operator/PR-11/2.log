@@ -1,0 +1,52 @@
+Step: build-step-credential-initializer-s5v94:
+
+Unable to retrieve container logs for docker://0e1f3cd36a5d88650acb4278ac327a76bcbff202784d727a725136513f5a001d
+Step: build-step-working-dir-initializer-dpp77:
+
+Unable to retrieve container logs for docker://9a38759bd728f773f14222e4012ecc7dc413749c2711e84f21af5581350a7774
+Step: build-step-place-tools:
+
+Unable to retrieve container logs for docker://029c57d527baeb795acd760364833606cad89fafb36aebee7830a32e65c13cc2
+Step: build-step-git-source-jenkins-x-charts-vault-operator-g2j66:
+
+{"level":"warn","ts":1565615667.1120095,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1565615671.9794157,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/jenkins-x-charts/vault-operator @ 5efed08cc23bc51edf8d284c24a782e2cea7443f in path /workspace/source"}
+Step: build-step-git-merge:
+
+Warning failed to load version: failed to parse version -dev+9e73adc0b: No Major.Minor.Patch elements found
+time="2019-08-12T13:14:36Z" level=info msg="got "
+Using SHAs from PULL_REFS=master:da9afc07c46a478a87207f84ade8af63ce162504,11:5efed08cc23bc51edf8d284c24a782e2cea7443f
+ran git fetch --unshallow origin 5efed08cc23bc51edf8d284c24a782e2cea7443f: da9afc07c46a478a87207f84ade8af63ce162504: in 
+ran git checkout master in 
+ran git reset --hard da9afc07c46a478a87207f84ade8af63ce162504 in 
+ran clean --force -d . in 
+ran git merge 5efed08cc23bc51edf8d284c24a782e2cea7443f in 
+Step: build-step-build-build:
+
+cat: /builder/home/basic-auth-user.json: No such file or directory
+cat: /builder/home/basic-auth-pass.json: No such file or directory
+rm -rf vault-operator/charts
+rm -rf vault-operator/vault-operator*.tgz
+rm -rf vault-operator/requirements.lock
+helm init --client-only
+Creating /builder/home/.helm 
+Creating /builder/home/.helm/repository 
+Creating /builder/home/.helm/repository/cache 
+Creating /builder/home/.helm/repository/local 
+Creating /builder/home/.helm/plugins 
+Creating /builder/home/.helm/starters 
+Creating /builder/home/.helm/cache/archive 
+Creating /builder/home/.helm/repository/repositories.yaml 
+Adding stable repo with URL: https://kubernetes-charts.storage.googleapis.com 
+Adding local repo with URL: http://127.0.0.1:8879/charts 
+$HELM_HOME has been configured at /builder/home/.helm.
+Not installing Tiller due to 'client-only' flag having been set
+helm repo add jenkins-x http://chartmuseum.jenkins-x.io
+"jenkins-x" has been added to your repositories
+helm dependency build vault-operator
+No requirements found in vault-operator/charts.
+helm lint vault-operator
+==> Linting vault-operator
+Lint OK
+
+1 chart(s) linted, no failures
