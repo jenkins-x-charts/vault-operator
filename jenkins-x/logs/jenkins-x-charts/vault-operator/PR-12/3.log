@@ -1,0 +1,53 @@
+Step: build-step-credential-initializer-8zbz9:
+
+{"level":"warn","ts":1565616280.1077833,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1565616280.1083279,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-working-dir-initializer-n7sd8:
+
+{"level":"warn","ts":1565616280.5488844,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1565616280.5504277,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+Step: build-step-place-tools:
+
+Step: build-step-git-source-jenkins-x-charts-vault-operator-w277t:
+
+{"level":"warn","ts":1565616283.301189,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1565616284.9749458,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/jenkins-x-charts/vault-operator @ f5052c3a5f70d0c1912ba45abee965c071670c86 in path /workspace/source"}
+Step: build-step-git-merge:
+
+Warning failed to load version: failed to parse version -dev+9e73adc0b: No Major.Minor.Patch elements found
+time="2019-08-12T13:24:48Z" level=info msg="got "
+Using SHAs from PULL_REFS=master:da9afc07c46a478a87207f84ade8af63ce162504,12:f5052c3a5f70d0c1912ba45abee965c071670c86
+ran git fetch --unshallow origin f5052c3a5f70d0c1912ba45abee965c071670c86: da9afc07c46a478a87207f84ade8af63ce162504: in 
+ran git checkout master in 
+ran git reset --hard da9afc07c46a478a87207f84ade8af63ce162504 in 
+ran clean --force -d . in 
+ran git merge f5052c3a5f70d0c1912ba45abee965c071670c86 in 
+Step: build-step-build-build:
+
+cat: /builder/home/basic-auth-user.json: No such file or directory
+cat: /builder/home/basic-auth-pass.json: No such file or directory
+rm -rf vault-operator/charts
+rm -rf vault-operator/vault-operator*.tgz
+rm -rf vault-operator/requirements.lock
+helm init --client-only
+Creating /builder/home/.helm 
+Creating /builder/home/.helm/repository 
+Creating /builder/home/.helm/repository/cache 
+Creating /builder/home/.helm/repository/local 
+Creating /builder/home/.helm/plugins 
+Creating /builder/home/.helm/starters 
+Creating /builder/home/.helm/cache/archive 
+Creating /builder/home/.helm/repository/repositories.yaml 
+Adding stable repo with URL: https://kubernetes-charts.storage.googleapis.com 
+Adding local repo with URL: http://127.0.0.1:8879/charts 
+$HELM_HOME has been configured at /builder/home/.helm.
+Not installing Tiller due to 'client-only' flag having been set
+helm repo add jenkins-x http://chartmuseum.jenkins-x.io
+"jenkins-x" has been added to your repositories
+helm dependency build vault-operator
+No requirements found in vault-operator/charts.
+helm lint vault-operator
+==> Linting vault-operator
+Lint OK
+
+1 chart(s) linted, no failures
